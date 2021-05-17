@@ -1,0 +1,188 @@
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 6px;
+    transition-duration: 0.4s;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+::-webkit-scrollbar-thumb{
+    background: #000000;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+}
+*{
+    position: relative;
+}
+body{
+    overflow-x: hidden;
+}
+.row{
+    width: 100% !important;
+}
+.t-d{
+    height: 2rem;
+}
+.dv-t{
+    text-align: center;
+    cursor: pointer;
+}
+.dv-d{
+    position: relative;
+    width: 100%;
+    height: 36rem;
+}
+.dv{
+    position: relative;
+    visibility: hidden;
+    background-color: #ffffff;
+    border: solid 2px #000000;
+    /*width: 80 50 20 %;*/
+    height: 36rem;
+    z-index: 1;
+    overflow: scroll;
+}
+#dvbg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border: none !important;
+    resize: none !important;
+    cursor: default !important;
+}
+#add{
+    position: absolute;
+    top: 15%;
+    right: 1rem;
+    padding: 5px;
+    background-color: #ffffff;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 1;
+}
+#add:hover{
+    z-index: 2;
+}
+button{
+    outline: none;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 0 5px #000000;
+}
+.dv > div{
+    position: relative;
+    resize: both !important;
+    overflow: auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: 60px;
+    height: 60px;
+    border: solid 2px;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    user-select: none !important;
+    z-index: 5;
+}
+.dv div input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+    z-index: 0;
+    border: none !important;
+    resize: none !important;
+    cursor: pointer;
+    text-align: center;
+}
+.dv div{
+    position: relative;
+    resize: both !important;
+    overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border: solid 1px;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    user-select: none !important;
+    z-index: 6;
+}
+.dv > ul{
+    list-style-type: none;
+    position: absolute;
+    min-width: 6rem;
+    background-color: #ffffff;
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.6);
+    z-index: 11;
+    padding: 0 !important;
+    line-height: 2;
+    text-align: center;
+}
+.dv > ul li{
+    cursor: pointer;
+}
+.dv > ul li:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#style{
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 36rem;
+    padding-left: 5px;
+    background-color: #000000;
+    color: rgb(2, 248, 43);
+    user-select: all;
+    z-index: 12;
+    line-height: .9;
+    overflow: scroll;
+}
+#style li{
+    list-style-type: none;
+    padding: 0 !important;
+}
+#style #li{
+    padding-left: 15px !important;
+}
+#index{
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 36rem;
+    padding-left: 5px;
+    background-color: #000000;
+    color: rgb(2, 248, 43);
+    user-select: all;
+    z-index: 12;
+    line-height: .9;
+    overflow: scroll;
+}
+#help{
+    margin-top: 1rem;
+    color: rgb(0, 140, 255);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.help div{
+    margin-bottom: 2rem;
+}
+font{
+    background-color: rgba(100, 148, 237, 0.5);
+}
+img{
+    width: 60%;
+    box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.6);
+}
