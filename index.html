@@ -70,6 +70,7 @@
         let html = new Array();
         //ids
         var classes = new Array();
+        var classes2 = new Array();
         const pc = document.getElementById("pc");
         const tablet = document.getElementById("tablet");
         const mobile = document.getElementById("mobile");
@@ -108,20 +109,14 @@
                 //add div
                 if(addto == ""){
                     classes.push(cname);
-                    dv.innerHTML += "<div id='" + cname + "' class='" + cname + "' maxlength='0' draggable=''><input onkeydown='m=true;' onkeyup='m=false;' onmouseup=\"m=false;mn='false';\" onmousedown='mn=" +'"' + cname +'"' + ";lists(" +'"' + cname +'"' + ");' maxlength='0'  placeholder='" + cname + "'></div>";
+                    dv.innerHTML += "<div id='" + cname + "' class='" + cname + "' maxlength='0' draggable=''><input onkeyup='m=false;' onmouseup=\"m=false;mn='false';\" onmousedown='mn=" +'"' + cname +'"' + ";lists(" +'"' + cname +'"' + ");' maxlength='0'  placeholder='" + cname + "' onkeydown='m=true;'></div>";
                     document.getElementById(""+cname+"").style.height = 60;
                     document.getElementById(""+cname+"").style.width = 60;
-                    for(let i = 0; i < classes.length; i++){
-                        html[i] = "";
-                        if(cname = classes[i]){
-                            html[i] += "<div id='"+cname+"' class='"+cname+"'></div>";
-                        }
-                    }
                 }
                 //add inside div
                 else{
                     classes.push(cname);
-                    document.getElementById(""+addto+"").innerHTML += "<div id='" + cname + "' class='" + cname + "' maxlength='0' draggable=''><input onkeydown='m=true;' onkeyup='m=false;' onmouseup=\"m=false;mn='false';mm='false';\" onmousedown='mn=" +'"' + cname +'"' + ";mm=" +'"' + addto +'"' + ";lists(" +'"' + cname +'"' + ");' onmouseout=\"m=false;mn='false';\" onmouseover='' maxlength='0'  placeholder='" + cname + "'></div>";
+                    document.getElementById(""+addto+"").innerHTML += "<div id='" + cname + "' class='" + cname + "' maxlength='0' draggable=''><input onkeyup='m=false;' onmouseup=\"m=false;mn='false';mm='false';\" onmousedown='mn=" +'"' + cname +'"' + ";mm=" +'"' + addto +'"' + ";lists(" +'"' + cname +'"' + ");' onmouseout=\"m=false;mn='false';\" onmouseover='' maxlength='0'  placeholder='" + cname + "' onkeydown='m=true;'></div>";
                     //math the left fare
                     document.getElementById(""+addto+"").onmousemove = function(){
                         tt = document.getElementById(""+addto+"").style.top;
@@ -129,11 +124,6 @@
                     }
                     document.getElementById(""+cname+"").style.height = 60;
                     document.getElementById(""+cname+"").style.width = 60;
-                    for(let i = 0; i < html.length; i++){
-                            if(addto = classes[i]){
-                                html[i] = "<div id='"+addto+"' class='"+addto+"'><div id='"+cname+"' class='"+cname+"'></div></div>";
-                            }
-                        }
                 }
             }
         }
@@ -297,6 +287,9 @@
                     displaypc[i] = displays;
                     heightpc[i] =  heights;
                     widthpc[i] = Math.round(width1[0] * 100 / width2);
+                    if(widthpc[i] > 100){
+                        widthpc[i] = 100;
+                    }
                 }
                 if(dvw == 992){
                     let positions = document.getElementById(""+classes[i]+"").style.position;
@@ -318,6 +311,9 @@
                     displaytablet[i] = displays;
                     heighttablet[i] =  heights;
                     widthtablet[i] = Math.round(width1[0] * 100 / width2);
+                    if(widthpc[i] > 100){
+                        widthpc[i] = 100;
+                    }
                 }
                 if(dvw == 576){
                     let positions = document.getElementById(""+classes[i]+"").style.position;
@@ -339,6 +335,9 @@
                     displaymobile[i] = displays;
                     heightmobile[i] =  heights;
                     widthmobile[i] = Math.round(width1[0] * 100 / width2);
+                    if(widthpc[i] > 100){
+                        widthpc[i] = 100;
+                    }
                 }
             }
         }
@@ -494,11 +493,21 @@
         
         document.getElementById("index").innerHTML = "";
         document.getElementById("html").onclick = function(){
+            var dvtcode = dv.innerHTML;
+            for(let ii = 0; ii < classes.length; ii++){
+                var vc = dvtcode.replace(/<input onkeyup="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmouseup="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmousedown="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" maxlength="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" placeholder="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onkeydown="m=true;">/, '');
+                var cv = /<input onkeyup="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmouseup="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmousedown="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmouseout="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onmouseover="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" maxlength="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" placeholder="[\w. | \w.=\w.; | \w.='\w; | \w.=&\w.;\w.&\w.;;\w.=&\w.;\w.&\w.;;\w.\(&\w.;\w.&\w.;\);]*" onkeydown="m=true;">/;
+                var code = vc.replace(cv, '');
+                var xxx = code.replace(/style="[\w.\-\\\w.:\w.; | \w.:\w.;]*"/, "");
+                var xx = xxx.replace('<div id="dvbg"></div>', "");
+                var x = xx.replace('maxlength="0" draggable=""', '');
+                dvtcode = x;
+            }
             document.getElementById("index").innerHTML = "";
             document.getElementById("html").innerHTML = "<div id='exit'>dbclick</div>";
             document.getElementById("index").style.visibility = "visible";
             head = "<!DOCTYPE ><html><head><meta charset='utf-8'><title>home</title><link rel='stylesheet' type='text/css' href='style.css' /><link rel='stylesheet' type='text/css' href='css/bootstrap.css' /><link rel='icon' href=''></head><body>";
-            document.getElementById("index").innerText += head + html.join("") + "</body></html>";
+            document.getElementById("index").innerText += head + dvtcode + "</body></html>";
             document.getElementById("exit").ondblclick = function(){
                 document.getElementById("index").style.visibility = "hidden";
                 document.getElementById("html").innerHTML = "html";
